@@ -1,0 +1,42 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+ENV/
+env/
+.venv/
+
+# Logs and results
+logs/
+results/
+runs/
+
+# Model weights / checkpoints
+models/
+*.pt
+*.h5
+*.ckpt
+
+# Uploads and temporary files
+uploads/
+*.zip
+*.tar.gz
+*.rar
+*.tmp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE / editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/

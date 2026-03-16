@@ -1,0 +1,16 @@
+torch
+torchvision
+torchaudio
+opencv-python
+opencv-python-headless
+numpy
+pandas
+tqdm
+matplotlib
+seaborn
+ultralytics
+fastapi
+uvicorn
+scikit-learn
+moviepy
+yt-dlp

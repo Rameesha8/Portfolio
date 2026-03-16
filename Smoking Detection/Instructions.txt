@@ -1,0 +1,169 @@
+# Dataset Setup Instructions – Smoking Detection 
+
+⚠ **Important Notice**
+Datasets are **NOT included** in this repository due to licensing and size restrictions.
+You must download and prepare them manually by following the steps below.
+
+---
+
+## 1. Required Datasets
+
+### 1.1 Image Classification Datasets
+
+Used for training the **image-level smoking classifier**.
+
+**Dataset 1 (Mendeley):**
+[https://data.mendeley.com/datasets/6hyrr8typ7/1](https://data.mendeley.com/datasets/6hyrr8typ7/1)
+
+**Dataset 2 (Kaggle):**
+[https://www.kaggle.com/datasets/vitaminc/cigarette-smoker-detection](https://www.kaggle.com/datasets/vitaminc/cigarette-smoker-detection)
+
+**Instructions:**
+
+1. Download both datasets manually.
+2. Extract them.
+3. Merge their folders as follows:
+
+```
+datasets/images/
+├── train/
+│   ├── smoker/
+│   └── non_smoker/
+└── val/
+    ├── smoker/
+    └── non_smoker/
+```
+
+---
+
+### 1.2 Object Detection Dataset (YOLO)
+
+Used for **cigarette detection** in frames.
+
+**Dataset:**
+[https://www.kaggle.com/datasets/prajjwalkumarpanzade/smoking-and-drinking-dataset-for-yolo](https://www.kaggle.com/datasets/prajjwalkumarpanzade/smoking-and-drinking-dataset-for-yolo)
+
+**Instructions:**
+
+1. Download the dataset manually.
+2. Extract it.
+3. Place it inside:
+
+```
+datasets/detector/
+```
+
+---
+
+## 2. Video Dataset (PHAD)
+
+Used for **temporal smoking behavior modeling**.
+
+### 2.1 Download Annotation Files
+
+PHAD does **not provide videos directly**.
+Videos are downloaded using annotation files.
+
+**Source:**
+[https://uark-cviu.github.io/projects/PHAD/](https://uark-cviu.github.io/projects/PHAD/)
+
+**Download:**
+
+* `train_annotations.zip`
+* `val_annotations.zip`
+
+**Extract to:**
+
+```
+datasets/PHAD/train_annotations/
+datasets/PHAD/val_annotations/
+```
+
+---
+
+### 2.2 Download Videos from Annotations
+
+After extracting annotation files, and placing them in folder.
+Ensure virtual environment is enabled
+```bash
+python prepare_videos.py
+```
+
+
+
+Videos will be saved to:
+
+```
+datasets/videos/train/
+datasets/videos/val/
+```
+
+---
+
+## 3. Preprocessing Videos
+
+Extract frames and generate embeddings using the trained image model.
+Ensure virtual environment is enabled
+Run:
+
+```bash
+python preprocess.py
+```
+
+This will create:
+
+```
+datasets/frames/
+datasets/embeddings/
+```
+
+---
+
+## 4. Automatic Video Label Generation
+
+Video labels are generated automatically using the image classifier.
+Ensure virtual environment is enabled
+Run:
+
+```bash
+python generate_video_labels.py
+```
+
+Output file:
+
+```
+datasets/video_labels.csv
+```
+
+Labels:
+
+* `0` → Non-Smoker
+* `1` → Smoker
+
+---
+
+## 5. Running the Application
+
+Once datasets are prepared:
+Ensure virtual environment is enabled
+```bash
+uvicorn app:app --reload
+```
+
+Open browser:
+
+```
+http://127.0.0.1:8000/docs
+```
+
+---
+
+## 6. Notes
+
+* All dataset folders should be prepared manually
+* Only code and trained models are shared
+* Dataset preparation is fully reproducible
+
+---
+
+✅ **Dataset setup complete. You are ready to run the system.**
