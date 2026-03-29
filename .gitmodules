@@ -4,3 +4,6 @@
 [submodule "Topic-Modeling-On-BBC-News"]
 	path = Topic-Modeling-On-BBC-News
 	url = https://github.com/username/Topic-Modeling-On-BBC-News.git
+[submodule "projects/Urdu_Sentence_Segmentation"]
+	path = projects/Urdu_Sentence_Segmentation
+	url = https://github.com/Rameesha8/Urdu_Sentence_Segmentation
