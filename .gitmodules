@@ -1,6 +1,6 @@
 [submodule "projects/Urdu_Sentence_Segmentation"]
 	path = projects/Urdu_Sentence_Segmentation
 	url = https://github.com/Rameesha8/Urdu_Sentence_Segmentation
-[submodule "projects/resume-screening-nlp"]
-	path = projects/resume-screening-nlp
+[submodule "resume-screening-nlp"]
+	path = resume-screening-nlp
 	url = https://github.com/Rameesha8/Resume-Screening-Using-NLP
